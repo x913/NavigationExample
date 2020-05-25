@@ -1,6 +1,7 @@
 package com.k3kc.navigationexample
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +33,14 @@ class MainFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+        when(v!!.id) {
+            R.id.view_transactions_btn ->
+                navController!!.navigate(R.id.action_mainFragment_to_viewTransactionFragment)
+            R.id.send_money_btn ->
+                navController!!.navigate(R.id.action_mainFragment_to_chooseRecipientFragment2)
+            R.id.view_balance_btn ->
+                navController!!.navigate(R.id.action_mainFragment_to_viewBalanceFragment)
+        }
     }
 
 }
