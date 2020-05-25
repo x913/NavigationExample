@@ -6,14 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import org.w3c.dom.Text
 
 
 class SpecifyAmountFragment : Fragment(), View.OnClickListener {
 
-    var navController: NavController? = null
+    lateinit var recipient: String
+    lateinit var navController: NavController
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        recipient = requireArguments().getString("recipient").toString()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +36,8 @@ class SpecifyAmountFragment : Fragment(), View.OnClickListener {
         navController = Navigation.findNavController(view)
         view.findViewById<Button>(R.id.send_btn).setOnClickListener(this)
         view.findViewById<Button>(R.id.cancel_btn).setOnClickListener(this)
+        val message = "Sending money to $recipient"
+        view.findViewById<TextView>(R.id.recipient).text = message
     }
 
     override fun onClick(v: View?) {

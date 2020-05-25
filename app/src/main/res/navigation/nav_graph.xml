@@ -10,38 +10,74 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
             android:id="@+id/action_mainFragment_to_viewTransactionFragment"
             app:destination="@id/viewTransactionFragment" />
         <action
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
             android:id="@+id/action_mainFragment_to_chooseRecipientFragment2"
             app:destination="@id/chooseRecipientFragment2" />
         <action
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
             android:id="@+id/action_mainFragment_to_viewBalanceFragment"
             app:destination="@id/viewBalanceFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/chooseRecipientFragment2"
         android:name="com.k3kc.navigationexample.ChooseRecipientFragment"
         android:label="fragment_choose_recipient"
         tools:layout="@layout/fragment_choose_recipient" >
         <action
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
             android:id="@+id/action_chooseRecipientFragment2_to_specifyAmountFragment"
             app:destination="@id/specifyAmountFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/confirmationFragment"
         android:name="com.k3kc.navigationexample.ConfirmationFragment"
         android:label="fragment_confirmation"
-        tools:layout="@layout/fragment_confirmation" />
+        tools:layout="@layout/fragment_confirmation">
+
+        <argument android:name="recipient"/>
+        <argument android:name="amount"
+            android:defaultValue="None"
+            app:argType="com.k3kc.navigationexample.Money"
+            />
+
+    </fragment>
+
     <fragment
         android:id="@+id/specifyAmountFragment"
         android:name="com.k3kc.navigationexample.SpecifyAmountFragment"
         android:label="fragment_specifiy_amount"
-        tools:layout="@layout/fragment_specifiy_amount" >
+        tools:layout="@layout/fragment_specifiy_amount">
+
+        <argument android:name="recipient" />
+
         <action
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
             android:id="@+id/action_specifyAmountFragment_to_confirmationFragment"
             app:destination="@id/confirmationFragment" />
+
     </fragment>
+
     <fragment
         android:id="@+id/viewBalanceFragment"
         android:name="com.k3kc.navigationexample.ViewBalanceFragment"
